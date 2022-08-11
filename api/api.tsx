@@ -4,7 +4,7 @@ const baseURL: string = "http://localhost:3000";
 
 axios.interceptors.request.use(
   (config: any) => {
-    const token: string | undefined = process.env.ACCESS_TOKEN;
+    const token: string | undefined = process.env.IPINFO_TOKEN;
     if (token) {
       config.headers["Authorization"] = `Bearer ${token}`;
     }
@@ -21,4 +21,8 @@ export const getAllStates = () => {
 
 export const getAllStatesData = () => {
   return axios.get(`${baseURL}/mock/states.json`);
+};
+
+export const getIpinfoState = () => {
+  return axios.get("http://ipinfo.io/json");
 };
