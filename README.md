@@ -1,34 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tallysight Coding Exercise
 
-## Getting Started
+## Setup
 
-First, run the development server:
+- Clone this repo and create a new branch.
+- Create [Next.js](https://nextjs.org/) project with Typescript.
+  - Get familiar with Static Generation, Server-Side Rendering, and API Routes.
+  - Do not change contents of `tsconfig.json` and `.eslintrc.json`.
+- Install [ChakraUI](https://chakra-ui.com/).
+  - We'll use ChakraUI for all UI elements. Please get familiar with it:
+    - https://chakra-ui.com/docs/components/overview
+    - https://pro.chakra-ui.com/components/free
+- Install and configure any dev dependency you usually use (e.g. `prettier`, `lint-staged`, etc.)
 
-```bash
-npm run dev
-# or
-yarn dev
+## Design
+
+![](design.png)
+
+## Tasks
+
+```
+- Please read all tasks before you start.
+- Complete tasks in order.
+- Do not skip tasks unless you get stuck.
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 1. Geolocation _(data coming from SSR)_
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Use [ipinfo.io](https://ipinfo.io/) free account to obtain the visitor's state.
+- **Do not use** their client library, use native functions already available with the [current Setup](#setup).
+- Show the visitor's state as shown in the design. _`{STATE}`_
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### 2. Neighbor State _(data coming from an API Route)_
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Using [states.json](states.json), find nearest state to the visitor's state that was provided by [Geolocation.](#2-geolocation-coming-from-ssr)
+  ```
+  Tip: Haversine formula.
+  ```
+- Read from the file somehow, not copy/paste.
+- Show nearest state and the distance as shown in the design. _`{Neighbor state}`_
+- Bonus: show a loading spinner while fetching the data (you may want to add an artificial delay of 1 second).
 
-## Learn More
+### 3. List of offers _(data coming from SSR)_
 
-To learn more about Next.js, take a look at the following resources:
+- Implement list of offers from the design.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  ```
+  Tip: VStack and HStacks.
+  ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Fetch list of offers from [this endpoint](https://api.airtable.com/v0/appDFOzemd24MG2CZ/sportsbooks) using bearer token `keyv05VZXGSFfVKO4`.
+- Use `URL` (from API response) for the blue buttons.
 
-## Deploy on Vercel
+### 4. Navigation Bar
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Use [this logo](https://tallysight.com/ts-logo.png).
+- Use empty pages for the navigation links.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 5. Footer
+
+- Dynamic year.
+
+### Optional
+
+- If you still have enough time and want to go beyond, please feel free to add anything you think this page could benefit from or anything you feel would showcase your skills.
+
+---
+
+## Notes
+
+- Store token in an environment variable and secured from public access.
+- Include the environment file so we can easily run your project.
+- Always keep accessibility and responsiveness in mind for every UI element.
+- Use the [current Setup](#setup) without installing any extra packages, unless it's a package you think you need to make progress.
