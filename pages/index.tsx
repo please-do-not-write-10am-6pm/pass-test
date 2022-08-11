@@ -12,13 +12,22 @@ export async function getServerSideProps() {
   const states = res.data;
   const distances = stateData.data;
 
+  if (process.env.IPINFO_TOKEN && process.env.IPINFO_TOKEN.loc()) {
+    distances.map((distance: Distance) => {
+      const start = [distance.latitude, distance.longitude];
+      const end = process.env.IPINFO_TOKEN.loc;
+    });
+  }
+
   // const distance =  Haversine formula
-  distances.map((distance: Distance) => {
-    const far = haversine(
-      [distance.latitude, distance.longitude],
-      process.env.IPINFO_TOKEN
-    );
-  });
+  // distances.map((distance: Distance) => {
+  //   const far = haversine(
+  //     [distance.latitude, distance.longitude],
+  //     process.env.IPINFO_TOKEN
+  //   );
+  //   console.log("far", far);
+  //   return far;
+  // });
   return { props: { states } };
 }
 

@@ -7,6 +7,9 @@ import {
 } from "@chakra-ui/react";
 
 export default function Footer() {
+  const date = new Date();
+  const year = date.getFullYear();
+
   return (
     <Box background={"black"}>
       <Container
@@ -18,7 +21,7 @@ export default function Footer() {
         align={"center"}
       >
         <Text fontSize={"1.2rem"} fontWeight={"700"} color={"white"}>
-          @ 2022 TALLYSIGHT INC. RESERVED
+          @ {year} TALLYSIGHT INC. RESERVED
         </Text>
       </Container>
 
