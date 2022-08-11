@@ -32,18 +32,18 @@ export async function getServerSideProps() {
 
   fars.sort((a, b) => a - b);
   const nearState = fars[0];
-  console.log("nearState", nearState);
 
   return { props: { states, nearState } };
 }
 
 const Home: NextPage<PROPS> = ({ states, nearState }) => {
-  console.log("nea", nearState);
-  console.log("states", states);
   return (
     <>
-      <Text fontSize={"20px"}>
-        Neighbor state is {nearState} miles away from you.
+      <Text fontSize={"30px"} fontWeight={900} textAlign={"center"}>
+        BEST SOPRTSBOOK OFFERS IN STATE
+      </Text>
+      <Text fontSize={"20px"} fontWeight={500} textAlign={"center"}>
+        <b>Neighbor state</b> is <b>{nearState}</b> miles away from you.
       </Text>
       {states.map((state: State, index: number) => {
         return <Card state={state} key={index}></Card>;
