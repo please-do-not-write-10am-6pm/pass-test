@@ -43,7 +43,8 @@ const Home: NextPage<PROPS> = ({ states, nearState }) => {
         BEST SOPRTSBOOK OFFERS IN STATE
       </Text>
       <Text fontSize={"20px"} fontWeight={500} textAlign={"center"}>
-        <b>Neighbor state</b> is <b>{nearState}</b> miles away from you.
+        <b>Neighbor state</b> is <b>{nearState.toFixed(3)}</b> miles away from
+        you.
       </Text>
       {states.map((state: State, index: number) => {
         return <Card state={state} key={index}></Card>;
