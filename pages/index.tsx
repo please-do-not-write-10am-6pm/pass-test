@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
-import { State } from "../src/types";
+import { Distance, State } from "../src/types";
 import Card from "../src/components/Card";
 import { getAllStates, getAllStatesData } from "../api/api";
+const haversine = require("haversine");
 
 export async function getServerSideProps() {
   const res = await getAllStates();
@@ -12,6 +13,12 @@ export async function getServerSideProps() {
   const distances = stateData.data;
 
   // const distance =  Haversine formula
+  distances.map((distance: Distance) => {
+    const far = haversine(
+      [distance.latitude, distance.longitude],
+      process.env.IPINFO_TOKEN
+    );
+  });
   return { props: { states } };
 }
 

@@ -5,3 +5,10 @@ export interface State {
   buttonName: string;
   img: string;
 }
+
+export interface Distance {
+  name: string;
+  abbreviatioin: string;
+  latitude: number;
+  longitude: number;
+}
