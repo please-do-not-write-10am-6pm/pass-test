@@ -1,12 +1,17 @@
 import type { NextPage } from "next";
 import { State } from "../src/types";
 import Card from "../src/components/Card";
-import { getAllStates } from "../api/api";
+import { getAllStates, getAllStatesData } from "../api/api";
 
 export async function getServerSideProps() {
   const res = await getAllStates();
-  const states = res.data;
 
+  const stateData = await getAllStatesData();
+
+  const states = res.data;
+  const distances = stateData.data;
+
+  // const distance =  Haversine formula
   return { props: { states } };
 }
 

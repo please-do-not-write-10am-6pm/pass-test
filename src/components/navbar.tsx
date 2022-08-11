@@ -37,6 +37,7 @@ export default function Navbar() {
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
+        justifyContent={"center"}
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -78,12 +79,7 @@ const DesktopNav = () => {
   const linkHoverColor = useColorModeValue("gray.800", "white");
 
   return (
-    <Stack
-      className="container"
-      justifyContent={"center"}
-      direction={"row"}
-      spacing={4}
-    >
+    <Stack className="container" direction={"row"} spacing={4}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
