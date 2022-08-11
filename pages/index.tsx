@@ -11,7 +11,6 @@ export async function getServerSideProps() {
 }
 
 const Home = (states: { states: any }) => {
-  console.log("statesObject", states);
   return (
     <>
       {states.states.map((state: State, index: number) => {

@@ -22,8 +22,6 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 
-import logo from "../assets/images/logo.png";
-
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
 
@@ -55,7 +53,12 @@ export default function Navbar() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <img src={logo.src} alt="Logo" width={120} height={100} />
+          <img
+            src="assets/images/logo.png"
+            alt="Logo"
+            width={120}
+            height={100}
+          />
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
@@ -73,12 +76,11 @@ export default function Navbar() {
 const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
-  const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
     <Stack
       className="container"
-      justify={"center"}
+      justifyContent={"center"}
       direction={"row"}
       spacing={4}
     >
