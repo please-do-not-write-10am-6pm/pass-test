@@ -24,7 +24,7 @@ import {
 
 import logo from "../assets/images/logo.png";
 
-export default function WithSubnavigation() {
+export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (

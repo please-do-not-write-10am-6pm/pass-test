@@ -6,7 +6,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 
-export default function SmallCentered() {
+export default function Footer() {
   return (
     <Box background={"black"}>
       <Container
